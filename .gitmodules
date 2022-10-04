@@ -1,9 +1,3 @@
-[submodule "bundles/bundle-example-commands"]
-	path = bundles/bundle-example-commands
-	url = https://github.com/gregstadermann/bundle-example-commands.git
-[submodule "bundles/bundle-example-combat"]
-	path = bundles/bundle-example-combat
-	url = https://github.com/gregstadermann/bundle-example-combat.git
 [submodule "bundles/combat"]
 	path = bundles/combat
 	url = https://github.com/gregstadermann/combat.git
