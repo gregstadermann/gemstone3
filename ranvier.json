@@ -1,7 +1,32 @@
 {
   "port": 4000,
   "bundles": [
+    "areas",
+    "channels",
+    "classes",
+    "combat",
+    "commands",
+    "debug",
+    "effects",
+    "input-events",
+    "lib",
+    "npc-behaviors",
+    "player-events",
+    "quests",
+    "simple-crafting",
+    "vendor-npcs",
+    "lootable-npcs",
+    "player-groups",
+    "progressive-respawn",
+    "telnet-networking",
+    "websocket-networking"
   ],
+  "loot-pools": {
+    "source": "Yaml",
+    "config": {
+      "path": "bundles/[BUNDLE]/areas/[AREA]/loot-pools.yml"
+    }
+  },
   "dataSources": {
     "YamlArea": {
       "require": "ranvier-datasource-file.YamlAreaDataSource"

@@ -43,3 +43,6 @@
 [submodule "bundles/quests"]
 	path = bundles/quests
 	url = https://github.com/gregstadermann/quests.git
+[submodule "bundles/websocket-networking"]
+	path = bundles/websocket-networking
+	url = https://github.com/gregstadermann/websocket-networking.git

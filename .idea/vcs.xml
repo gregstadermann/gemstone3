@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/areas" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/channels" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/classes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/combat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/commands" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/debug" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/effects" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/input-events" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/lib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/lootable-npcs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/player-events" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/player-groups" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/quests" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/simple-crafting" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bundles/vendor-npcs" vcs="Git" />
+  </component>
+</project>

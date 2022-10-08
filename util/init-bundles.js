@@ -33,26 +33,26 @@ async function main() {
     process.exit(0);
   }
 
-  const githubPath = 'https://github.com/ranviermud/';
+  const githubPath = 'https://github.com/gregstadermann/';
   const defaultBundles = [
-    'https://github.com/RanvierMUD/bundle-example-areas',
-    'https://github.com/RanvierMUD/bundle-example-channels',
-    'https://github.com/RanvierMUD/bundle-example-classes',
-    'https://github.com/RanvierMUD/bundle-example-combat',
-    'https://github.com/RanvierMUD/bundle-example-commands',
-    'https://github.com/RanvierMUD/bundle-example-debug',
-    'https://github.com/RanvierMUD/bundle-example-effects',
-    'https://github.com/RanvierMUD/bundle-example-input-events',
-    'https://github.com/RanvierMUD/bundle-example-lib',
-    'https://github.com/RanvierMUD/bundle-example-npc-behaviors',
-    'https://github.com/RanvierMUD/bundle-example-player-events',
-    'https://github.com/RanvierMUD/bundle-example-quests',
-    'https://github.com/RanvierMUD/simple-crafting',
-    'https://github.com/RanvierMUD/vendor-npcs',
-    'https://github.com/RanvierMUD/player-groups',
-    'https://github.com/RanvierMUD/progressive-respawn',
-    'https://github.com/RanvierMUD/telnet-networking',
-    'https://github.com/RanvierMUD/websocket-networking',
+    'https://github.com/gregstadermann/areas',
+    'https://github.com/gregstadermann/channels',
+    'https://github.com/gregstadermann/classes',
+    'https://github.com/gregstadermann/combat',
+    'https://github.com/gregstadermann/commands',
+    'https://github.com/gregstadermann/debug',
+    'https://github.com/gregstadermann/effects',
+    'https://github.com/gregstadermann/input-events',
+    'https://github.com/gregstadermann/lib',
+    'https://github.com/gregstadermann/npc-behaviors',
+    'https://github.com/gregstadermann-player-events',
+    'https://github.com/gregstadermann/quests',
+    'https://github.com/gregstadermann/simple-crafting',
+    'https://github.com/gregstadermann/vendor-npcs',
+    'https://github.com/gregstadermann/player-groups',
+    'https://github.com/gregstadermann/progressive-respawn',
+    'https://github.com/gregstadermann/telnet-networking',
+    'https://github.com/gregstadermann/websocket-networking',
   ];
   const enabledBundles = [];
 
@@ -85,7 +85,7 @@ run the following commands:
 
   git commit -m "Install bundles"
 
-You're all set! See https://ranviermud.com for guides and API references
+You're all set! See https://gregstadermann.com for guides and API references
 `);
 
   process.exit(0);
