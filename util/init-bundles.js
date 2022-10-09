@@ -51,7 +51,7 @@ async function main() {
     'https://github.com/gregstadermann/vendor-npcs',
     'https://github.com/gregstadermann/player-groups',
     'https://github.com/gregstadermann/progressive-respawn',
-    'https://github.com/gregstadermann/telnet-networking',
+    'https://github.com/gregstadermann/telnet',
     'https://github.com/gregstadermann/websocket-networking',
   ];
   const enabledBundles = [];

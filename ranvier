@@ -62,6 +62,7 @@ const logfile = Ranvier.Config.get('logfile');
 if (logfile) {
   Logger.setFileLogging(`${__dirname}/log/${logfile}`);
 }
+console.log(logfile);
 
 if (commander.prettyErrors) {
   Logger.enablePrettyErrors();

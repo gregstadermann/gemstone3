@@ -49,3 +49,12 @@
 [submodule "bundles/progressive-respawn"]
 	path = bundles/progressive-respawn
 	url = git@github.com:gregstadermann/progressive-respawn.git
+[submodule "bundles/npc-behaviors"]
+	path = bundles/npc-behaviors
+	url = git@github.com:gregstadermann/npc-behaviors.git
+[submodule "bundles/telnet"]
+	path = bundles/telnet
+	url = git@github.com:gregstadermann/telnet.git
+[submodule "bundles/telnet-networking"]
+	path = bundles/telnet-networking
+	url = git@github.com:gregstadermann/telnet-networking.git
