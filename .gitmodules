@@ -46,3 +46,6 @@
 [submodule "bundles/websocket-networking"]
 	path = bundles/websocket-networking
 	url = https://github.com/gregstadermann/websocket-networking.git
+[submodule "bundles/progressive-respawn"]
+	path = bundles/progressive-respawn
+	url = git@github.com:gregstadermann/progressive-respawn.git
