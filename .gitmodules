@@ -31,9 +31,6 @@
 [submodule "bundles/player-groups"]
 	path = bundles/player-groups
 	url = https://github.com/gregstadermann/player-groups.git
-[submodule "bundles/classes"]
-	path = bundles/classes
-	url = https://github.com/gregstadermann/classes.git
 [submodule "bundles/channels"]
 	path = bundles/channels
 	url = https://github.com/gregstadermann/channels.git
@@ -46,3 +43,9 @@
 [submodule "bundles/websocket-networking"]
 	path = bundles/websocket-networking
 	url = https://github.com/gregstadermann/websocket-networking.git
+[submodule "classes"]
+	path = classes
+	url = https://github.com/gregstadermann/classes.git
+[submodule "bundles/classes"]
+	path = bundles/classes
+	url = https://github.com/gregstadermann/classes.git

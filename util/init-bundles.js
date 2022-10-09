@@ -37,7 +37,6 @@ async function main() {
   const defaultBundles = [
     'https://github.com/gregstadermann/areas',
     'https://github.com/gregstadermann/channels',
-    'https://github.com/gregstadermann/classes',
     'https://github.com/gregstadermann/combat',
     'https://github.com/gregstadermann/commands',
     'https://github.com/gregstadermann/debug',
