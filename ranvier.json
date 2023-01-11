@@ -99,7 +99,9 @@
   "reportToAdmins": false,
   "startingRoom": "limbo:white",
   "moveCommand": "move",
-  "skillLag": 2000,
-  "defaultMaxPlayerInventory": 16,
-  "maxIdleTime": 20
+  "skillLag": 1000,
+  "defaultMaxPlayerInventory": 160,
+  "maxIdleTime": 20,
+  "entityTickFrequency": 90,
+  "playerTickFrequency": 90
 }
