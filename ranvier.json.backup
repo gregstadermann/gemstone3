@@ -28,6 +28,26 @@
     }
   },
   "dataSources": {
+    "MongoDbArray": {
+      "require": "ranvier-mongodb-datasource.MongoDbArrayDatasource",
+      "config": {
+        "host": "127.0.0.1:27017",
+        "user": "gs3db",
+        "pass": "gcsgcs",
+        "name": "gs3",
+        "authDatabase": "admin"
+      }
+    },
+    "MongoDbObject": {
+      "require": "ranvier-mongodb-datasource.MongoDbObjectDatasource",
+      "config": {
+        "host": "127.0.0.1:27017",
+        "user": "gs3db",
+        "pass": "gcsgcs",
+        "name": "gs3",
+        "authDatabase": "admin"
+      }
+    },
     "YamlArea": {
       "require": "ranvier-datasource-file.YamlAreaDataSource"
     },
@@ -42,6 +62,18 @@
     }
   },
   "entityLoaders": {
+    "areas": {
+      "source": "MongoDbObject",
+      "config": {
+        "collection": "areas"
+      }
+    },
+    "rooms": {
+      "source": "MongoDbArray",
+      "config": {
+        "collection": "rooms"
+      }
+    },
     "accounts": {
       "source": "JsonDirectory",
       "config": {
@@ -54,12 +86,6 @@
         "path": "data/player"
       }
     },
-    "areas": {
-      "source": "YamlArea",
-      "config": {
-        "path": "bundles/[BUNDLE]/areas"
-      }
-    },
     "npcs": {
       "source": "Yaml",
       "config": {
@@ -70,12 +96,6 @@
       "source": "Yaml",
       "config": {
         "path": "bundles/[BUNDLE]/areas/[AREA]/items.yml"
-      }
-    },
-    "rooms": {
-      "source": "Yaml",
-      "config": {
-        "path": "bundles/[BUNDLE]/areas/[AREA]/rooms.yml"
       }
     },
     "quests": {
@@ -97,7 +117,7 @@
   "minPlayerNameLength": 3,
   "maxCharacters": 3,
   "reportToAdmins": false,
-  "startingRoom": "wehnimers-landing-town:tsc",
+  "startingRoom": "limbo:white",
   "moveCommand": "move",
   "skillLag": 1000,
   "defaultMaxPlayerInventory": 160,
