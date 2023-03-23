@@ -101,7 +101,7 @@
   "moveCommand": "move",
   "skillLag": 1000,
   "defaultMaxPlayerInventory": 160,
-  "maxIdleTime": 20,
+  "maxIdleTime": 120,
   "entityTickFrequency": 90,
   "playerTickFrequency": 90
 }
