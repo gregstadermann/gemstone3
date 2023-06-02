@@ -20,21 +20,21 @@ const fs = require('fs');
 
 // for dev clone the github:ranviermud/core repo, and run npm link in that folder, then come
 // back to the ranviermud repo and run npm link ranvier
-const Ranvier = require('ranvier');
-const Config = Ranvier.Config;
+const Gemstone = require('ranvier');
+const Config = Gemstone.Config;
 
 // Package.json for versioning
 const pkg = require('./package.json');
 
 if (!semver.satisfies(process.version, pkg.engines.node)) {
   throw new Error(
-    `Ranvier's core engine requires Node version ${pkg.engines.node},
+    `core engine requires Node version ${pkg.engines.node},
     you are currently running Node ${process.version}.`
   );
 }
 
 // Wrapper for ranvier.json
-Ranvier.Data.setDataPath(__dirname + '/data/');
+Gemstone.Data.setDataPath(__dirname + '/data/');
 if (fs.existsSync('./ranvier.conf.js')) {
   Config.load(require('./ranvier.conf.js'));
 } else if (fs.existsSync('./ranvier.json')) {
@@ -47,7 +47,7 @@ if (fs.existsSync('./ranvier.conf.js')) {
 // cmdline options
 commander
   .version(pkg.version)
-  .option('-p, --port [portNumber]', 'Port to host the server [23]', Ranvier.Config.get('port', 23))
+  .option('-p, --port [portNumber]', 'Port to host the server [23]', Gemstone.Config.get('port', 23))
   .option('-v, --verbose', 'Verbose console logging.', true)
   .option('-e, --prettyErrors', 'Pretty-print formatting for error stack traces.', false)
   .parse(process.argv);
@@ -57,8 +57,8 @@ commander
 process.env.NODE_DEBUG = 'net';
 process.stdin.setEncoding('utf8');
 
-const Logger = Ranvier.Logger;
-const logfile = Ranvier.Config.get('logfile');
+const Logger = Gemstone.Logger;
+const logfile = Gemstone.Config.get('logfile');
 if (logfile) {
   Logger.setFileLogging(`${__dirname}/log/${logfile}`);
 }
@@ -87,38 +87,38 @@ async function init(restartServer) {
   restartServer = typeof restartServer === 'undefined' ? true : restartServer;
 
   GameState = {
-    AccountManager: new Ranvier.AccountManager(),
-    AreaBehaviorManager: new Ranvier.BehaviorManager(),
-    AreaFactory: new Ranvier.AreaFactory(),
-    AreaManager: new Ranvier.AreaManager(),
-    AttributeFactory: new Ranvier.AttributeFactory(),
-    ChannelManager: new Ranvier.ChannelManager(),
-    CommandManager: new Ranvier.CommandManager(),
+    AccountManager: new Gemstone.AccountManager(),
+    AreaBehaviorManager: new Gemstone.BehaviorManager(),
+    AreaFactory: new Gemstone.AreaFactory(),
+    AreaManager: new Gemstone.AreaManager(),
+    AttributeFactory: new Gemstone.AttributeFactory(),
+    ChannelManager: new Gemstone.ChannelManager(),
+    CommandManager: new Gemstone.CommandManager(),
     Config, // All global server settings like default respawn time, save interval, port, what bundles to load, etc.
-    EffectFactory: new Ranvier.EffectFactory(),
-    HelpManager: new Ranvier.HelpManager(),
-    InputEventManager: new Ranvier.EventManager(),
-    ItemBehaviorManager: new Ranvier.BehaviorManager(),
-    ItemFactory: new Ranvier.ItemFactory(),
-    ItemManager: new Ranvier.ItemManager(),
-    MobBehaviorManager: new Ranvier.BehaviorManager(),
-    MobFactory: new Ranvier.MobFactory(),
-    MobManager: new Ranvier.MobManager(),
-    PartyManager: new Ranvier.PartyManager(),
-    PlayerManager: new Ranvier.PlayerManager(),
-    QuestFactory: new Ranvier.QuestFactory(),
-    QuestGoalManager: new Ranvier.QuestGoalManager(),
-    QuestRewardManager: new Ranvier.QuestRewardManager(),
-    RoomBehaviorManager: new Ranvier.BehaviorManager(),
-    RoomFactory: new Ranvier.RoomFactory(),
-    RoomManager: new Ranvier.RoomManager(),
-    SkillManager: new Ranvier.SkillManager(),
-    SpellManager: new Ranvier.SkillManager(),
-    ServerEventManager: new Ranvier.EventManager(),
-    GameServer: new Ranvier.GameServer(),
-    DataLoader: Ranvier.Data,
-    EntityLoaderRegistry: new Ranvier.EntityLoaderRegistry(),
-    DataSourceRegistry: new Ranvier.DataSourceRegistry(),
+    EffectFactory: new Gemstone.EffectFactory(),
+    HelpManager: new Gemstone.HelpManager(),
+    InputEventManager: new Gemstone.EventManager(),
+    ItemBehaviorManager: new Gemstone.BehaviorManager(),
+    ItemFactory: new Gemstone.ItemFactory(),
+    ItemManager: new Gemstone.ItemManager(),
+    MobBehaviorManager: new Gemstone.BehaviorManager(),
+    MobFactory: new Gemstone.MobFactory(),
+    MobManager: new Gemstone.MobManager(),
+    PartyManager: new Gemstone.PartyManager(),
+    PlayerManager: new Gemstone.PlayerManager(),
+    QuestFactory: new Gemstone.QuestFactory(),
+    QuestGoalManager: new Gemstone.QuestGoalManager(),
+    QuestRewardManager: new Gemstone.QuestRewardManager(),
+    RoomBehaviorManager: new Gemstone.BehaviorManager(),
+    RoomFactory: new Gemstone.RoomFactory(),
+    RoomManager: new Gemstone.RoomManager(),
+    SkillManager: new Gemstone.SkillManager(),
+    SpellManager: new Gemstone.SkillManager(),
+    ServerEventManager: new Gemstone.EventManager(),
+    GameServer: new Gemstone.GameServer(),
+    DataLoader: Gemstone.Data,
+    EntityLoaderRegistry: new Gemstone.EntityLoaderRegistry(),
+    DataSourceRegistry: new Gemstone.DataSourceRegistry(),
   };
 
   // setup entity loaders
@@ -129,7 +129,7 @@ async function init(restartServer) {
   GameState.PlayerManager.setLoader(GameState.EntityLoaderRegistry.get('players'));
 
   // Setup bundlemanager
-  const BundleManager = new Ranvier.BundleManager(__dirname + '/bundles/', GameState);
+  const BundleManager = new Gemstone.BundleManager(__dirname + '/bundles/', GameState);
   GameState.BundleManager = BundleManager;
   await BundleManager.loadBundles();
   GameState.ServerEventManager.attach(GameState.GameServer);
