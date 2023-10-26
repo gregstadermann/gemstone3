@@ -3,7 +3,7 @@
 
 /**
  * Main file, use this to run the server:
- * node ranvier [options]
+ * node gemstone [options]
  *
  * Options:
  *   -v Verbose loggin
@@ -33,14 +33,14 @@ if (!semver.satisfies(process.version, pkg.engines.node)) {
   );
 }
 
-// Wrapper for ranvier.json
+// Wrapper for gemstone.json
 Gemstone.Data.setDataPath(__dirname + '/data/');
 if (fs.existsSync('./ranvier.conf.js')) {
   Config.load(require('./ranvier.conf.js'));
-} else if (fs.existsSync('./ranvier.json')) {
-  Config.load(require('./ranvier.json'));
+} else if (fs.existsSync('./gemstone.json')) {
+  Config.load(require('./gemstone.json'));
 } else {
-  console.error('ERROR: No ranvier.json or ranvier.conf.js found');
+  console.error('ERROR: No gemstone.json or ranvier.conf.js found');
   process.exit(1);
 }
 
@@ -147,7 +147,7 @@ async function init(restartServer) {
 
     clearInterval(playerTickInterval);
     playerTickInterval = setInterval(() => {
-      GameState.PlayerManager.emit('updateTick');
+      GameState.PlayerManager.tickAll();
     }, Config.get('playerTickFrequency', 100));
   }
 }

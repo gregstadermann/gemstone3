@@ -70,13 +70,13 @@ async function main() {
   console.info('Done.');
 
   console.info('Enabling bundles...');
-  const ranvierJsonPath = __dirname + '/../ranvier.json';
+  const ranvierJsonPath = __dirname + '/../gemstone.json';
   const ranvierJson = require(ranvierJsonPath);
   ranvierJson.bundles = defaultBundles.map(bundle => bundle.replace(/^.+\/([a-z\-]+)$/, '$1'));
   fs.writeFileSync(ranvierJsonPath, JSON.stringify(ranvierJson, null, 2));
   console.info('Done.');
 
-  cp.execSync('git add ranvier.json');
+  cp.execSync('git add gemstone.json');
 
   console.info(`
 -------------------------------------------------------------------------------
