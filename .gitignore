@@ -4,6 +4,7 @@ data/player/*.json
 data/account/*.json
 !data/account/Admin.json
 !data/player/Admin.json
+log/game.yaml
 *.swp
 coverage/
 *.logs
