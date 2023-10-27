@@ -103,5 +103,6 @@
   "defaultMaxPlayerInventory": 160,
   "maxIdleTime": 120,
   "entityTickFrequency": 90,
-  "playerTickFrequency": 90
+  "playerTickFrequency": 90,
+  "logfile": "game.yaml"
 }
