@@ -6,6 +6,7 @@
     "classes",
     "combat",
     "commands",
+    "critsCrush",
     "debug",
     "effects",
     "input-events",
@@ -21,12 +22,6 @@
     "telnet-networking",
     "websocket-networking"
   ],
-  "loot-pools": {
-    "source": "Yaml",
-    "config": {
-      "path": "bundles/[BUNDLE]/areas/[AREA]/loot-pools.yml"
-    }
-  },
   "dataSources": {
     "YamlArea": {
       "require": "ranvier-datasource-file.YamlAreaDataSource"
@@ -39,13 +34,45 @@
     },
     "JsonDirectory": {
       "require": "ranvier-datasource-file.JsonDirectoryDataSource"
+    },
+    "MongoDbArray": {
+      "require": "ranvier-mongodb-datasource.MongoDbArrayDatasource",
+      "config": {
+        "host": "localhost:27017",
+        "user": "gs3db",
+        "pass": "gcsgcs",
+        "name": "gs3",
+        "authDatabase": "admin"
+      }
+    },
+    "MongoDbObject": {
+      "require": "ranvier-mongodb-datasource.MongoDbObjectDatasource",
+      "config": {
+        "host": "localhost:27017",
+        "user": "gs3db",
+        "pass": "gcsgcs",
+        "name": "gs3",
+        "authDatabase": "admin"
+      }
     }
   },
   "entityLoaders": {
+    "loot-pools": {
+      "source": "Yaml",
+      "config": {
+        "path": "bundles/[BUNDLE]/areas/[AREA]/loot-pools.yml"
+      }
+    },
     "accounts": {
       "source": "JsonDirectory",
       "config": {
         "path": "data/account"
+      }
+    },
+    "critsCrush": {
+      "source": "MongoDbArray",
+      "config": {
+        "collection":"criticalsCrush"
       }
     },
     "players": {
@@ -100,7 +127,7 @@
   "startingRoom": "wehnimers-landing-town:tsc",
   "moveCommand": "move",
   "skillLag": 1000,
-  "defaultMaxPlayerInventory": 160,
+  "defaultMaxPlayerInventory": 2,
   "maxIdleTime": 120,
   "entityTickFrequency": 90,
   "playerTickFrequency": 90,

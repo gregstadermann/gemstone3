@@ -128,8 +128,15 @@ async function init(restartServer) {
   GameState.PlayerManager.setLoader(GameState.EntityLoaderRegistry.get('players'));
 
   // Setup bundlemanager
+
   const BundleManager = new Gemstone.BundleManager(__dirname + '/bundles/', GameState);
+  const CritsCrushManager = new Gemstone.CritsCrushManager();
+
   GameState.BundleManager = BundleManager;
+  GameState.CritsCrushManager = CritsCrushManager;
+  GameState.CritsCrushManager.setLoader(GameState.EntityLoaderRegistry.get('critsCrush'));
+  GameState.CritsCrushManager.loadCritical(66);
+
   await BundleManager.loadBundles();
   GameState.ServerEventManager.attach(GameState.GameServer);
 
