@@ -69,10 +69,16 @@
         "path": "data/account"
       }
     },
-    "critsCrush": {
+    "weapons": {
       "source": "MongoDbArray",
       "config": {
-        "collection":"criticalsCrush"
+        "collection":"weapons"
+      }
+    },
+    "crits_crush": {
+      "source": "MongoDbArray",
+      "config": {
+        "collection":"crits_crush"
       }
     },
     "players": {
