@@ -135,7 +135,6 @@ async function init(restartServer) {
   GameState.BundleManager = BundleManager;
   GameState.CritsCrushManager = CritsCrushManager;
   GameState.CritsCrushManager.setLoader(GameState.EntityLoaderRegistry.get('crits_crush'));
-  GameState.CritsCrushManager.loadCritical(66);
 
   await BundleManager.loadBundles();
   GameState.ServerEventManager.attach(GameState.GameServer);
