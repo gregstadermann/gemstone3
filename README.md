@@ -10,3 +10,4 @@ ____                                __                               ______  ___
 
 ![Screenshot](/gemstone3-github-screenshot-01.png)
 ![Screenshot](/gemstone3-github-screenshot-02.png)
+![Screenshot](/gemstone3-github-screenshot-03.png)
