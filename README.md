@@ -8,4 +8,5 @@ ____                                __                               ______  ___
     \/___/  \/____/\/_/\/_/\/_/\/___/   \/__/\/___/  \/_/\/_/\/____/     \/_____/\/_____/\/_____/
 ```
 
-![Screenshot](/gemstone3-github-screenshot.png)
+![Screenshot](/gemstone3-github-screenshot-01.png)
+![Screenshot](/gemstone3-github-screenshot-02.png)
