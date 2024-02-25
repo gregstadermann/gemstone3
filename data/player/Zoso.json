@@ -1,0 +1,195 @@
+{
+  "attributes": {
+    "one_handed_edged": {
+      "delta": 0,
+      "base": 0
+    },
+    "one_handed_blunt": {
+      "delta": 0,
+      "base": 0
+    },
+    "two_handed": {
+      "delta": 0,
+      "base": 0
+    },
+    "polearm": {
+      "delta": 0,
+      "base": 0
+    },
+    "ranged": {
+      "delta": 0,
+      "base": 0
+    },
+    "thrown": {
+      "delta": 0,
+      "base": 0
+    },
+    "combat_maneuvers": {
+      "delta": 0,
+      "base": 0
+    },
+    "shield_use": {
+      "delta": 0,
+      "base": 0
+    },
+    "armor_use": {
+      "delta": 0,
+      "base": 0
+    },
+    "climbing": {
+      "delta": 0,
+      "base": 0
+    },
+    "swimming": {
+      "delta": 0,
+      "base": 0
+    },
+    "disarm_traps": {
+      "delta": 0,
+      "base": 0
+    },
+    "pick_locks": {
+      "delta": 0,
+      "base": 0
+    },
+    "stalk_and_hide": {
+      "delta": 0,
+      "base": 0
+    },
+    "perception": {
+      "delta": 0,
+      "base": 0
+    },
+    "ambush": {
+      "delta": 0,
+      "base": 0
+    },
+    "spell_aim": {
+      "delta": 0,
+      "base": 0
+    },
+    "physical_training": {
+      "delta": 0,
+      "base": 0
+    },
+    "mana_share": {
+      "delta": 0,
+      "base": 0
+    },
+    "magic_item_use": {
+      "delta": 0,
+      "base": 0
+    },
+    "scroll_reading": {
+      "delta": 0,
+      "base": 0
+    },
+    "first_aid": {
+      "delta": 0,
+      "base": 0
+    },
+    "mana": {
+      "delta": 0,
+      "base": 100
+    },
+    "health": {
+      "delta": 0,
+      "base": 10
+    },
+    "discipline": {
+      "delta": 0,
+      "base": 0
+    },
+    "aura": {
+      "delta": 0,
+      "base": 0
+    },
+    "strength": {
+      "delta": 0,
+      "base": 0
+    },
+    "logic": {
+      "delta": 0,
+      "base": 0
+    },
+    "charisma": {
+      "delta": 0,
+      "base": 0
+    },
+    "wisdom": {
+      "delta": 0,
+      "base": 0
+    },
+    "intelligence": {
+      "delta": 0,
+      "base": 0
+    },
+    "dexterity": {
+      "delta": 0,
+      "base": 0
+    },
+    "constitution": {
+      "delta": 0,
+      "base": 0
+    },
+    "reflexes": {
+      "delta": 0,
+      "base": 0
+    },
+    "critical": {
+      "delta": 0,
+      "base": 0
+    },
+    "AS": {
+      "delta": 0,
+      "base": 0
+    },
+    "DS": {
+      "delta": 0,
+      "base": 0
+    }
+  },
+  "level": 1,
+  "name": "Zoso",
+  "room": "wehnimers-landing-town:tsc",
+  "effects": [
+    {
+      "config": {
+        "autoActivate": true,
+        "description": "You are regenerating over time.",
+        "duration": "inf",
+        "hidden": true,
+        "maxStacks": 0,
+        "name": "Regenerate",
+        "persists": true,
+        "refreshes": false,
+        "tickInterval": 3,
+        "type": "regen",
+        "unique": true
+      },
+      "elapsed": 44814,
+      "id": "regen",
+      "remaining": null,
+      "state": {
+        "magnitude": 15,
+        "lastTick": 1658,
+        "ticks": 15
+      }
+    }
+  ],
+  "experience": 0,
+  "inventory": {
+    "items": [],
+    "max": 2
+  },
+  "metadata": {
+    "class": "mage"
+  },
+  "prompt": "[ %health.current%/%health.max% <b>hp</b> %mana.current%/%mana.max% <b>mana</b> ]",
+  "quests": {
+    "completed": [],
+    "active": []
+  },
+  "role": 2,
+  "equipment": {}
+}
