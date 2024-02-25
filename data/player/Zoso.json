@@ -1,5 +1,9 @@
 {
   "attributes": {
+    "brawling": {
+      "delta": 0,
+      "base": 0
+    },
     "one_handed_edged": {
       "delta": 0,
       "base": 0
@@ -167,12 +171,12 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 44814,
+      "elapsed": 44820,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 1658,
+        "lastTick": 1663,
         "ticks": 15
       }
     }
