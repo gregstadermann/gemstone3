@@ -1,9 +1,12 @@
 node_modules
+/data/
 plugins/**/*.*
+!data/account/Admin.json
+!data/account/Zoso.json
+!data/player/Admin.json
+!data/player/Zoso.json
 data/player/*.json
 data/account/*.json
-!data/account/Admin.json
-!data/player/Admin.json
 log/game.yaml
 *.swp
 coverage/
@@ -15,7 +18,6 @@ gulpTODO.md
 .ranvierSecret
 log/*.log
 !log/.gitkeep
-/data/
 
 # ignore mkdocs build target
 site/
