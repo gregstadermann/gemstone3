@@ -19,6 +19,7 @@
   "dependencies": {
     "commander": "^2.19.0",
     "optimist": "",
+    "rando-js": "^0.2.0",
     "ranvier": "file:../gemstone3-core",
     "ranvier-datasource-file": "^1.0.3",
     "ranvier-mongodb-datasource": "^1.0.0",
