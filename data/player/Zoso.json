@@ -171,13 +171,13 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 7729285,
+      "elapsed": 25762067,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 1815,
-        "ticks": 2509
+        "lastTick": 1088,
+        "ticks": 8363
       }
     },
     {
@@ -194,7 +194,7 @@
         "type": "equip.chest",
         "unique": true
       },
-      "elapsed": 7428428,
+      "elapsed": 25461208,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -218,7 +218,7 @@
         "type": "equip.feet",
         "unique": true
       },
-      "elapsed": 7329314,
+      "elapsed": 25362094,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -281,6 +281,10 @@
     ]
   },
   "role": 2,
+  "tps": 0,
+  "race": null,
+  "sex": null,
+  "manaStat": null,
   "equipment": {
     "back": {
       "entityReference": "limbo:heavy_backpack",
