@@ -113,7 +113,7 @@ async function init(restartServer) {
     RoomManager: new Gemstone.RoomManager(),
     SkillManager: new Gemstone.SkillManager(),
     SpellManager: new Gemstone.SkillManager(),
-    WeaponManager: new Gemstone.WeaponManager(),
+    // WeaponManager: new Gemstone.WeaponManager(),
     ServerEventManager: new Gemstone.EventManager(),
     GameServer: new Gemstone.GameServer(),
     DataLoader: Gemstone.Data,
@@ -130,14 +130,14 @@ async function init(restartServer) {
 
   // Setup BundleManager
   const BundleManager = new Gemstone.BundleManager(__dirname + '/bundles/', GameState);
-  const CritsCrushManager = new Gemstone.CritsCrushManager();
-  const WeaponManager = new Gemstone.WeaponManager();
+  // const CritsCrushManager = new Gemstone.CritsCrushManager();
+  // const WeaponManager = new Gemstone.WeaponManager();
 
   GameState.BundleManager = BundleManager;
-  GameState.CritsCrushManager = CritsCrushManager;
-  GameState.WeaponManager = WeaponManager;
-  GameState.CritsCrushManager.setLoader(GameState.EntityLoaderRegistry.get('crits_crush'));
-  GameState.WeaponManager.setLoader(GameState.EntityLoaderRegistry.get('weapon'));
+  //GameState.CritsCrushManager = CritsCrushManager;
+  // GameState.WeaponManager = WeaponManager;
+ // GameState.CritsCrushManager.setLoader(GameState.EntityLoaderRegistry.get('crits_crush'));
+  // GameState.WeaponManager.setLoader(GameState.EntityLoaderRegistry.get('weapons'));
 
   await BundleManager.loadBundles();
   GameState.ServerEventManager.attach(GameState.GameServer);

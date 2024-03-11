@@ -6,7 +6,6 @@
     "classes",
     "combat",
     "commands",
-    "critsCrush",
     "debug",
     "effects",
     "input-events",
@@ -70,9 +69,15 @@
       }
     },
     "weapons": {
+      "source": "JsonDirectory",
+      "config": {
+        "path": "bundles/combat/lib/weapons"
+      }
+    },
+    "weapon_broadsword": {
       "source": "MongoDbArray",
       "config": {
-        "collection":"weapons"
+        "collection":"weapon_broadsword"
       }
     },
     "crits_crush": {
