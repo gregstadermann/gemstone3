@@ -171,12 +171,12 @@
         "type": "regen",
         "unique": true
       },
-      "elapsed": 25762067,
+      "elapsed": 25762076,
       "id": "regen",
       "remaining": null,
       "state": {
         "magnitude": 15,
-        "lastTick": 1088,
+        "lastTick": 1097,
         "ticks": 8363
       }
     },
@@ -194,7 +194,7 @@
         "type": "equip.chest",
         "unique": true
       },
-      "elapsed": 25461208,
+      "elapsed": 25461217,
       "id": "equip",
       "remaining": null,
       "state": {
@@ -218,7 +218,7 @@
         "type": "equip.feet",
         "unique": true
       },
-      "elapsed": 25362094,
+      "elapsed": 25362103,
       "id": "equip",
       "remaining": null,
       "state": {
