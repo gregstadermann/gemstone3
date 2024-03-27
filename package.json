@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "commander": "^2.19.0",
+    "js-yaml": "^4.1.0",
     "optimist": "",
     "rando-js": "^0.2.0",
     "ranvier": "file:../gemstone3-core",
