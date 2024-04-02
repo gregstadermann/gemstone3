@@ -35,12 +35,10 @@ if (!semver.satisfies(process.version, pkg.engines.node)) {
 
 // Wrapper for gemstone.json
 Gemstone.Data.setDataPath(__dirname + '/data/');
-if (fs.existsSync('./ranvier.conf.js')) {
-  Config.load(require('./ranvier.conf.js'));
-} else if (fs.existsSync('./gemstone.json')) {
+if (fs.existsSync('./gemstone.json')) {
   Config.load(require('./gemstone.json'));
 } else {
-  console.error('ERROR: No gemstone.json or ranvier.conf.js found');
+  console.error('ERROR: No gemstone.conf config found');
   process.exit(1);
 }
 
