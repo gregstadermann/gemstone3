@@ -24,11 +24,13 @@
     "ranvier": "file:../gemstone3-core",
     "ranvier-datasource-file": "^1.0.3",
     "ranvier-mongodb-datasource": "^1.0.0",
+    "ranvier-telnet": "^1.0.3",
     "semver": "^5.6.0",
     "sprintf-js": "^1.0.3",
     "sty": "",
     "uuid": "^3.3.2",
-    "winston": "^2.4.4"
+    "winston": "^2.4.4",
+    "ws": "^8.18.3"
   },
   "devDependencies": {
     "git-url-parse": "^11.1.2"
