@@ -283,3 +283,5 @@ Most MUD clients will need to be configured with:
 - **Protocol**: Telnet or WebSocket depending on client
 
 For more information, visit [gregstadermann.com](https://gregstadermann.com) for guides and API references.
+
+  ./dev-login.expect zoso gcsgcsgcs 3
