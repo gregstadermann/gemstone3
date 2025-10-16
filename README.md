@@ -79,6 +79,63 @@ git submodule update --init --recursive
 - **Check bundle status**: `git submodule status`
 - **Update all bundles**: `git submodule update --recursive`
 
+## Development Workflow
+
+### Working with Git Submodules
+
+This project uses git submodules for bundle management. Here's the recommended workflow for making changes and committing them:
+
+#### Making Changes
+1. **Edit files** in any bundle directory (e.g., `bundles/commands/`, `bundles/combat/`)
+2. **Test your changes** by running the MUD: `npm start`
+
+#### Committing Changes
+When you're ready to commit your changes:
+
+1. **Commit all submodule changes**:
+   ```bash
+   git submodule foreach 'git add . && git commit -m "Update bundle content" || true'
+   ```
+   This command:
+   - Goes into each submodule (bundle)
+   - Adds all modified files
+   - Commits them with a message
+   - Continues even if a submodule has no changes (`|| true`)
+
+2. **Commit main project changes**:
+   ```bash
+   git add . && git commit -m "Update all bundles and main project"
+   ```
+
+3. **Push everything to remote**:
+   ```bash
+   git push origin master
+   ```
+
+#### Alternative: Manual Submodule Commits
+If you prefer to commit submodules individually:
+
+```bash
+# Go into a specific bundle
+cd bundles/commands
+
+# Add and commit changes
+git add .
+git commit -m "Fix look command functionality"
+
+# Go back to main project
+cd ../..
+
+# Commit the submodule update
+git add bundles/commands
+git commit -m "Update commands bundle"
+```
+
+#### Checking Status
+- **See all changes**: `git status`
+- **See submodule status**: `git submodule status`
+- **See changes in a specific bundle**: `cd bundles/commands && git status`
+
 ### Default Bundles Included
 The following bundles are included by default:
 - **areas** - Game areas and rooms
