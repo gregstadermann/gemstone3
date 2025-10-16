@@ -14,7 +14,8 @@
     "init": "node ./util/init-bundles.js",
     "update-bundle-remote": "node ./util/update-bundle-url.js",
     "remove-bundle": "node ./util/remove-bundle.js",
-    "install-bundle": "node ./util/install-bundle.js"
+    "install-bundle": "node ./util/install-bundle.js",
+    "dev": "nodemon --watch bundles --watch gemstone --ext js,json,yml --ignore log/ --exec node gemstone"
   },
   "dependencies": {
     "commander": "^2.19.0",
@@ -33,7 +34,8 @@
     "ws": "^8.18.3"
   },
   "devDependencies": {
-    "git-url-parse": "^11.1.2"
+    "git-url-parse": "^11.1.2",
+    "nodemon": "^3.1.10"
   },
   "description": "<p align=\"center\"><img class=\"readme-logo\" src=\"https://raw.githubusercontent.com/RanvierMUD/docs/master/resources/logo.png\"></p>",
   "bugs": {
