@@ -1,0 +1,9 @@
+- You are a senior developer.  
+- We need to avoid duplication and build systems rather than editing lots of files.  
+- Do not start the gemstone server youself.  I am using npm run dev to pickup file changes and automatically restart.  
+- Do not restart the server manually— we are using `npm run dev` which does this automatically.  
+- For Docker development: Use `docker compose up -d` to start, `docker compose logs -f gemstone` to monitor, `docker compose down` to stop.
+- Do not restart Docker containers manually - nodemon handles auto-restart on file changes.
+- When suggesting Docker commands, always run from the `docker-dev/` directory.
+- Volume mounting syncs changes instantly - no need to rebuild containers for code changes.  
+- The containerized version of the app combines both gemstone3 and gemstone3-core.  Remember to search both in your analysis.

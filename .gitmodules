@@ -1,0 +1,60 @@
+[submodule "bundles/combat"]
+	path = bundles/combat
+	url = https://github.com/gregstadermann/combat.git
+[submodule "bundles/commands"]
+	path = bundles/commands
+	url = https://github.com/gregstadermann/commands.git
+[submodule "bundles/debug"]
+	path = bundles/debug
+	url = https://github.com/gregstadermann/debug.git
+[submodule "bundles/areas"]
+	path = bundles/areas
+	url = https://github.com/gregstadermann/areas.git
+[submodule "bundles/player-events"]
+	path = bundles/player-events
+	url = https://github.com/gregstadermann/player-events.git
+[submodule "bundles/lib"]
+	path = bundles/lib
+	url = https://github.com/gregstadermann/lib.git
+[submodule "bundles/lootable-npcs"]
+	path = bundles/lootable-npcs
+	url = https://github.com/gregstadermann/lootable-npcs.git
+[submodule "bundles/vendor-npcs"]
+	path = bundles/vendor-npcs
+	url = https://github.com/gregstadermann/vendor-npcs.git
+[submodule "bundles/simple-crafting"]
+	path = bundles/simple-crafting
+	url = https://github.com/gregstadermann/simple-crafting.git
+[submodule "bundles/input-events"]
+	path = bundles/input-events
+	url = https://github.com/gregstadermann/input-events.git
+[submodule "bundles/player-groups"]
+	path = bundles/player-groups
+	url = https://github.com/gregstadermann/player-groups.git
+[submodule "bundles/classes"]
+	path = bundles/classes
+	url = https://github.com/gregstadermann/classes.git
+[submodule "bundles/channels"]
+	path = bundles/channels
+	url = https://github.com/gregstadermann/channels.git
+[submodule "bundles/effects"]
+	path = bundles/effects
+	url = https://github.com/gregstadermann/effects.git
+[submodule "bundles/quests"]
+	path = bundles/quests
+	url = https://github.com/gregstadermann/quests.git
+[submodule "bundles/websocket-networking"]
+	path = bundles/websocket-networking
+	url = https://github.com/gregstadermann/websocket-networking.git
+[submodule "bundles/progressive-respawn"]
+	path = bundles/progressive-respawn
+	url = git@github.com:gregstadermann/progressive-respawn.git
+[submodule "bundles/npc-behaviors"]
+	path = bundles/npc-behaviors
+	url = git@github.com:gregstadermann/npc-behaviors.git
+[submodule "bundles/telnet"]
+	path = bundles/telnet
+	url = git@github.com:gregstadermann/telnet.git
+[submodule "bundles/telnet-networking"]
+	path = bundles/telnet-networking
+	url = git@github.com:gregstadermann/telnet-networking.git

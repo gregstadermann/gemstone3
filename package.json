@@ -1,0 +1,47 @@
+{
+  "name": "ranviermud",
+  "version": "2.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shawncplus/ranviermud.git"
+  },
+  "engines": {
+    "node": ">= 10.12.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node gemstone -v",
+    "init": "node ./util/init-bundles.js",
+    "update-bundle-remote": "node ./util/update-bundle-url.js",
+    "remove-bundle": "node ./util/remove-bundle.js",
+    "install-bundle": "node ./util/install-bundle.js",
+    "dev": "nodemon --watch bundles --watch gemstone --ext js,json,yml --ignore log/ --exec node gemstone"
+  },
+  "dependencies": {
+    "commander": "^2.19.0",
+    "js-yaml": "^4.1.0",
+    "optimist": "",
+    "rando-js": "^0.2.0",
+    "ranvier": "file:../gemstone3-core",
+    "ranvier-datasource-file": "^1.0.3",
+    "ranvier-telnet": "^1.0.3",
+    "semver": "^5.6.0",
+    "sprintf-js": "^1.0.3",
+    "sty": "",
+    "uuid": "^3.3.2",
+    "winston": "^2.4.4",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "git-url-parse": "^11.1.2",
+    "nodemon": "^3.1.10"
+  },
+  "description": "<p align=\"center\"><img class=\"readme-logo\" src=\"https://raw.githubusercontent.com/RanvierMUD/docs/master/resources/logo.png\"></p>",
+  "bugs": {
+    "url": "https://github.com/shawncplus/ranviermud/issues"
+  },
+  "homepage": "https://github.com/shawncplus/ranviermud#readme",
+  "main": "index.js",
+  "keywords": [],
+  "author": ""
+}

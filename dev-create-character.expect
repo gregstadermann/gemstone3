@@ -1,0 +1,46 @@
+#!/usr/bin/expect -f
+set timeout 2
+# usage: ./dev-create-character.expect <account> <password>
+set user [lindex $argv 0]
+set pass [lindex $argv 1]
+
+spawn telnet localhost 4000
+expect -re "Account:"
+send "$user\r"
+expect -re "Password:"
+send "$pass\r"
+expect -re "(Selection|Select|Enter).*:"
+send "2\r"
+expect -re "Enter your character's name:"
+send "Riggins\r"
+expect -re "Is this correct?"
+send "yes\r"
+expect -re "Please select your gender:"
+send "male\r"
+expect -re "Please select your race:"
+send "giantman\r"
+expect -re "Please select your skin tone:"
+send "white\r"
+expect -re "Please select your height:"
+send "short\r"
+expect -re "Please select your hair color:"
+send "black\r"
+expect -re "Please select your hair style:"
+send "short\r"
+expect -re "Please select your hair texture:"
+send "none\r"
+expect -re "Please select your hair quirks:"
+send "none\r"
+expect -re "Please select your eye color:"
+send "green\r"
+expect -re "Please select your eye traits:"
+send "none\r"
+expect -re "Please select your nose details:"
+send "none\r"
+expect -re "Please select your face features:"
+send "none\r"
+expect -re "Please select your distinguishing marks:"
+send "none\r"
+expect -re "Please select your profession:"
+send "warrior\r"
+interact

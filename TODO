@@ -1,0 +1,103 @@
+-- Health system
+-- Lockpicking system
+-- Remove monk
+
+-- speed up the expect script (can i just send gcsgcsgcs right after but with the character selection)
+
+erfect! Based on my analysis, here's how MongoDB would dramatically improve performance and which data should be prioritized for migration:
+🚀 Performance Benefits of MongoDB Migration
+Major Performance Gains:
+Concurrent Access: Multiple players can save/load simultaneously without file locking
+Indexed Queries: Fast lookups by username, account, character name, etc.
+Partial Updates: Update only changed fields instead of rewriting entire files
+Connection Pooling: Reuse database connections instead of file I/O
+Memory Efficiency: Load only needed data, not entire player files
+Scalability Impact:
+10 players: 2-3x faster saves/loads
+50 players: 5-10x performance improvement
+100+ players: Essential for viability
+📊 Data Migration Priority (High to Low Impact)
+🔥 CRITICAL - Migrate First:
+1. Player Data (data/player/)
+Current: 869-line JSON files per player
+Frequency: Every save command, logout, level up, combat
+Impact: MASSIVE - This is your biggest bottleneck
+MongoDB Benefits:
+Partial updates (only changed attributes)
+Indexed by player name, account
+Concurrent saves without conflicts
+Atomic operations for critical data
+2. Account Data (data/account/)
+Current: Simple JSON files
+Frequency: Login, character creation, account management
+Impact: HIGH - Login bottleneck
+MongoDB Benefits:
+Fast username lookups
+Character list management
+Account-level operations
+🟡 MEDIUM Priority:
+3. Dynamic Game State
+Current: In-memory only (lost on restart)
+Examples: Active effects, combat states, room occupancy
+Impact: MEDIUM - Improves persistence
+MongoDB Benefits:
+Survive server restarts
+Cross-server state sharing
+Better debugging/monitoring
+🟢 LOW Priority (Keep as Files):
+4. Static Game Data (Keep in files)
+Areas/Rooms: Rarely change, loaded once at startup
+NPCs: Static definitions, loaded once
+Items: Static templates, loaded once
+Weapons/Crits: Static data, loaded once
+Quests: Static definitions, loaded once
+Help Files: Static content, loaded once
+Why keep static data in files?
+Faster startup (no database queries)
+Version control friendly
+Easier development/debugging
+No migration needed
+🏗️ Recommended MongoDB Schema
+Players Collection:
+Accounts Collection:
+GameState Collection:
+⚡ Implementation Strategy
+Phase 1: Player Data Migration
+Create MongoDB connection
+Migrate existing player JSON files
+Update PlayerManager to use MongoDB
+Implement save batching (queue saves, flush every 5-10 seconds)
+Phase 2: Account Data Migration
+Migrate account files
+Update AccountManager
+Add proper indexing
+Phase 3: Dynamic State (Optional)
+Add game state persistence
+Implement cleanup for expired data
+📈 Expected Performance Improvements
+Before MongoDB (File-based):
+Player save: 50-200ms (file write)
+Player load: 20-100ms (file read)
+Concurrent saves: Blocking (file locks)
+Memory usage: Full player data loaded
+After MongoDB:
+Player save: 5-20ms (indexed update)
+Player load: 2-10ms (indexed query)
+Concurrent saves: Non-blocking
+Memory usage: Only active data loaded
+Scaling Impact:
+10 players: 3-5x faster operations
+50 players: 10-20x improvement
+100+ players: Makes scaling viable
+🔧 Development Considerations
+Migration Tools Needed:
+Data Migration Script: Convert JSON files to MongoDB
+Dual-Mode Support: Support both file and DB during transition
+Rollback Plan: Ability to revert to files if needed
+Monitoring: Track performance improvements
+MongoDB Configuration:
+Connection Pool: 10-20 connections
+Indexes: username, account, lastLogin
+Write Concern: "majority" for data safety
+Read Preference: "primary" for consistency
+The player data migration alone would provide the biggest performance boost and is essential for scaling beyond 20-30 concurrent players. The static game data can stay in files since it's loaded once at startup and rarely changes.

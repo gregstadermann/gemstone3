@@ -1,0 +1,15 @@
+#!/usr/bin/expect -f
+set timeout 2
+# usage: ./dev-login.expect <account> <password> <character-number>
+set user [lindex $argv 0]
+set pass [lindex $argv 1]
+set sel  [lindex $argv 2]
+
+spawn telnet localhost 4000
+expect -re "Welcome, what is your account username\\?"
+send "$user\r"
+expect -re "Enter your password:"
+send "$pass\r"
+expect -re "Your choice:"
+send "$sel\r"
+interact

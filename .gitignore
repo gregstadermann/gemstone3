@@ -1,0 +1,26 @@
+node_modules
+/data/
+plugins/**/*.*
+!data/account/Admin.json
+!data/account/Zoso.json
+!data/player/Admin.json
+!data/player/Zoso.json
+data/player/*.json
+data/account/*.json
+log/game.yaml
+*.swp
+coverage/
+*.logs
+*.log
+*.debug
+gulpTODO.md
+*.sublime-*
+.ranvierSecret
+log/*.log
+!log/.gitkeep
+
+# ignore mkdocs build target
+site/
+
+# ignore api.ai key
+bundles/ranvier-npc-behaviors/APIAIKEY

@@ -1,0 +1,30 @@
+services:
+  gemstone:
+    build:
+      context: ..
+      dockerfile: docker-dev/Dockerfile
+    ports:
+      - "4000:4000"  # WebSocket (changed to match your current port)
+      - "23:23"      # Telnet
+    volumes:
+      - ..:/app        # Mount parent directory (gemstone3)
+      - /home/greg/gemstone3-core:/app/gemstone3-core  # Mount core framework with absolute path
+      - /app/node_modules  # Prevent overwriting
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongo:27017/gemstone
+    depends_on:
+      - mongo
+    command: sh -c "ln -sf /app/gemstone3-core node_modules/ranvier && npm run dev"
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=gemstone
+
+volumes:
+  mongo_data:

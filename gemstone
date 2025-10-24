@@ -1,0 +1,161 @@
+#!/usr/bin/env node
+'use strict';
+
+/**
+ * Main file, use this to run the server:
+ * node gemstone [options]
+ *
+ * Options:
+ *   -v Verbose loggin
+ *   --port Port to listen on
+ */
+
+
+/* NPM Modules */
+const semver = require('semver');
+const net = require('net');
+const commander = require('commander');
+const argv = require('optimist').argv;
+const fs = require('fs');
+
+// for dev clone the github:ranviermud/core repo, and run npm link in that folder, then come
+// back to the ranviermud repo and run npm link ranvier
+const Gemstone = require('./gemstone3-core');
+const Config = Gemstone.Config;
+
+// Package.json for versioning
+const pkg = require('./package.json');
+
+if (!semver.satisfies(process.version, pkg.engines.node)) {
+  throw new Error(
+    `core engine requires Node version ${pkg.engines.node},
+    you are currently running Node ${process.version}.`
+  );
+}
+
+// Wrapper for gemstone.json
+Gemstone.Data.setDataPath(__dirname + '/data/');
+if (fs.existsSync('./gemstone.json')) {
+  Config.load(require('./gemstone.json'));
+} else {
+  console.error('ERROR: No gemstone.conf config found');
+  process.exit(1);
+}
+
+// cmdline options
+commander
+  .version(pkg.version)
+  .option('-p, --port [portNumber]', 'Port to host the server [23]', Gemstone.Config.get('port', 23))
+  .option('-v, --verbose', 'Verbose console logging.', true)
+  .option('-e, --prettyErrors', 'Pretty-print formatting for error stack traces.', false)
+  .parse(process.argv);
+
+// Set debug variable and encoding.
+// 'net' by default to help find possible server errors.
+process.env.NODE_DEBUG = 'net';
+process.stdin.setEncoding('utf8');
+
+const Logger = Gemstone.Logger;
+const logfile = Gemstone.Config.get('logfile');
+if (logfile) {
+  Logger.setFileLogging(`${__dirname}/log/${logfile}`);
+}
+
+if (commander.prettyErrors) {
+  Logger.enablePrettyErrors();
+}
+
+// Set logging level based on CLI option or environment variable.
+const logLevel = commander.verbose ?
+  'verbose' :
+  process.env.LOG_LEVEL || Config.get('logLevel') || 'debug';
+Logger.setLevel(logLevel);
+
+
+// Global state object, server instance and configurable intervals.
+let GameState = {};
+let saveInterval, tickInterval, playerTickInterval, experienceAbsorptionSystem;
+
+/**
+ * Do the dirty work
+ */
+async function init(restartServer) {
+  Logger.log("START - Loading entities");
+  restartServer = typeof restartServer === 'undefined' ? true : restartServer;
+
+  GameState = {
+    AccountManager: new Gemstone.AccountManager(),
+    AreaBehaviorManager: new Gemstone.BehaviorManager(),
+    AreaFactory: new Gemstone.AreaFactory(),
+    AreaManager: new Gemstone.AreaManager(),
+    AttributeFactory: new Gemstone.AttributeFactory(),
+    ChannelManager: new Gemstone.ChannelManager(),
+    CommandManager: new Gemstone.CommandManager(),
+    Config, // All global server settings like default respawn time, save interval, port, what bundles to load, etc.
+    EffectFactory: new Gemstone.EffectFactory(),
+    HelpManager: new Gemstone.HelpManager(),
+    InputEventManager: new Gemstone.EventManager(),
+    ItemBehaviorManager: new Gemstone.BehaviorManager(),
+    ItemFactory: new Gemstone.ItemFactory(),
+    ItemManager: new Gemstone.ItemManager(),
+    MobBehaviorManager: new Gemstone.BehaviorManager(),
+    MobFactory: new Gemstone.MobFactory(),
+    MobManager: new Gemstone.MobManager(),
+    PartyManager: new Gemstone.PartyManager(),
+    PlayerManager: new Gemstone.PlayerManager(),
+    QuestFactory: new Gemstone.QuestFactory(),
+    QuestGoalManager: new Gemstone.QuestGoalManager(),
+    QuestRewardManager: new Gemstone.QuestRewardManager(),
+    RoomBehaviorManager: new Gemstone.BehaviorManager(),
+    RoomFactory: new Gemstone.RoomFactory(),
+    RoomManager: new Gemstone.RoomManager(),
+    SkillManager: new Gemstone.SkillManager(),
+    SpellManager: new (require('./bundles/classes/lib/SpellLoader'))(),
+    // WeaponManager: new Gemstone.WeaponManager(),
+    ServerEventManager: new Gemstone.EventManager(),
+    GameServer: new Gemstone.GameServer(),
+    DataLoader: Gemstone.Data,
+    EntityLoaderRegistry: new Gemstone.EntityLoaderRegistry(),
+    DataSourceRegistry: new Gemstone.DataSourceRegistry(),
+  };
+
+  // Setup entity loaders
+  GameState.DataSourceRegistry.load(require, __dirname, Config.get('dataSources'));
+  GameState.EntityLoaderRegistry.load(GameState.DataSourceRegistry, Config.get('entityLoaders'));
+
+  GameState.AccountManager.setLoader(GameState.EntityLoaderRegistry.get('accounts'));
+  GameState.PlayerManager.setLoader(GameState.EntityLoaderRegistry.get('players'));
+
+  // Setup BundleManager
+  const BundleManager = new Gemstone.BundleManager(__dirname + '/bundles/', GameState);
+
+  GameState.BundleManager = BundleManager;
+  await BundleManager.loadBundles();
+  GameState.ServerEventManager.attach(GameState.GameServer);
+
+  if (restartServer) {
+    Logger.log("START - Starting server");
+    GameState.GameServer.startup(commander);
+
+    // Ticks for effect processing and combat happen every 100ms
+    clearInterval(tickInterval);
+    tickInterval = setInterval(() => {
+      GameState.AreaManager.tickAll(GameState);
+      GameState.ItemManager.tickAll();
+    }, Config.get('entityTickFrequency', 100));
+
+    clearInterval(playerTickInterval);
+    playerTickInterval = setInterval(() => {
+      GameState.PlayerManager.tickAll();
+    }, Config.get('playerTickFrequency', 100));
+
+    // Start experience absorption system
+    const ExperienceAbsorptionSystem = require('./bundles/lib/lib/ExperienceAbsorptionSystem');
+    experienceAbsorptionSystem = new ExperienceAbsorptionSystem(GameState);
+    experienceAbsorptionSystem.start();
+  }
+}
+
+// START IT UP!
+init();
+// vim: set syn=javascript :
